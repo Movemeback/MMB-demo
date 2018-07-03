@@ -1,0 +1,19 @@
+<div class="container">
+  <app-add-task></app-add-task>
+  <ng-container *ngIf="tasksList.length > 0; else noTask">
+    <p>Tasks To Do: {{tasksList.length}}</p>
+    <div class="tasks-list" appDate [date]="task.created" *ngFor="let task of tasksList">
+      {{task.name}}
+      <button type="button" class="btn btn-danger" (click)="remove(task)">
+        <i class="fas fa-archive"></i>
+      </button>
+      <button type="button" class="btn btn-success" (click)="done(task)">
+        <i class="fas fa-check-circle"></i>
+      </button>
+    </div>
+  </ng-container>
+  <ng-template #noTask>
+    <p>No tasks, you are free!</p>
+  </ng-template>
+  <button type="button" class="btn btn-warning" (click)="save()">Save</button>
+</div>

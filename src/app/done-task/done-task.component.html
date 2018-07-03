@@ -1,0 +1,12 @@
+<div class=container>
+  <p> Tasks Done: {{tasksDone.length}}</p>
+  <ul>
+    <li appChecked appDate [date]="task.end" *ngFor="let task of tasksDone">
+      {{task.name}}
+      <button type="button" class="btn btn-danger" (click)="remove(task)">
+        <i class="fas fa-archive"></i>
+      </button>
+    </li>
+  </ul>
+
+</div>
